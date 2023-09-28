@@ -17,9 +17,9 @@
 using namespace std;
 using namespace std::chrono;
 
-
-unsigned int SZ = 16;
-const unsigned int TS = 16;
+// set those evenly:
+unsigned int SZ = 16;        // 1
+const unsigned int TS = 16;  // 2
 unsigned int **A, **B, **C, **D;
 
 void init(unsigned int **&A, unsigned int rows, unsigned int cols, bool initialise);
