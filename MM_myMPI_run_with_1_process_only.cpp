@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <random>
 #include <mpi.h>
-
+#include <omp.h>
 using namespace std;
 using namespace std::chrono;
 
@@ -169,6 +169,7 @@ int main(int argc, char **argv) {
     MPI_Barrier(MPI_COMM_WORLD);
     // Perform local matrix multiplication on each process
     auto start = high_resolution_clock::now();
+#pragma omp parallel for collapse(2) 
     for (int i = 0; i < local_size; ++i) {
         for (int j = 0; j < N; ++j) {
             for (int k = 0; k < N; ++k) {
